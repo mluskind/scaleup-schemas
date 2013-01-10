@@ -42,7 +42,7 @@ class ScaleUp_Person_Schema extends ScaleUp_Thing_Schema {
   var $award;
 
   /**
-   * 
+   *
    */
 
 }
