@@ -30,7 +30,7 @@ class ScaleUp_Person_Schema extends ScaleUp_Thing_Schema {
   /**
    * An educational organizations that the person is an alumni of.
    *
-   * @var EducationalOrganization
+   * @var ScaleUp_EducationalOrganization_Schema
    */
   var $alumniOf;
 

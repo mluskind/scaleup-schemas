@@ -1,6 +1,6 @@
 <?php
 /**
- * ScaleUp schema for ContacPoint
+ * ScaleUp schema for ContactPoint
  *
  * @see http://schema.org/ContactPoint
  */
