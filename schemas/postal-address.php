@@ -32,7 +32,7 @@ class ScaleUp_PostalAddress_Schema extends ScaleUp_Thing_Schema {
   /**
    * The postal code. For example, 94043.
    *
-   * @var postalCode
+   * @var string
    */
   var $postalCode;
 
