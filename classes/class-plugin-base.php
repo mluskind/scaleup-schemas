@@ -2,18 +2,13 @@
 class ScaleUp_Schemas_Plugin {
 
   function __construct() {
-    add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
     add_filter( 'debug_bar_panels', array( $this, 'debug_bar_panels') );
   }
 
-  static function plugins_loaded() {
-    add_action( 'admin_bar_init', array( self, 'admin_bar_init' ) );
-  }
-
-  static function admin_bar_init() {
-    if ( class_exists( 'Debug_Bar') ) {
-
-    }
+  function debug_bar_panels( $panels ) {
+    include_once( SCALEUP_SCHEMAS_DIR . '/classes/class-debug-bar.php' );
+    $panels[] = new ScaleUp_Schemas_Debug_Bar_Panel();
+    return $panels;
   }
 
 }

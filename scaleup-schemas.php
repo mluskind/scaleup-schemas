@@ -13,6 +13,8 @@ require_once( SCALEUP_SCHEMAS_DIR . '/classes/class-schema.php' );
 require_once( SCALEUP_SCHEMAS_DIR . '/classes/class-schemas.php' );
 require_once( SCALEUP_SCHEMAS_DIR . '/functions.php' );
 
+new ScaleUp_Schemas_Plugin();
+
 register_scaleup_schema( 'Thing',           'ScaleUp_Thing_Schema',           SCALEUP_SCHEMAS_DIR . '/schemas/thing.php' );
 register_scaleup_schema( 'PostalAddress',   'ScaleUp_PostalAddress_Schema',   SCALEUP_SCHEMAS_DIR . '/schemas/postal-address.php' );
 register_scaleup_schema( 'ContactPoint',    'ScaleUp_ContactPoint_Schema',    SCALEUP_SCHEMAS_DIR . '/schemas/contact-point.php' );

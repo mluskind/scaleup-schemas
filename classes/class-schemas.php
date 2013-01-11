@@ -33,4 +33,13 @@ class ScaleUp_Schemas {
     return true;
   }
 
+  /**
+   * Returns array of all registered schemas
+   *
+   * @return array
+   */
+  public static function available_schemas() {
+    return array_keys( self::$_schemas );
+  }
+
 }

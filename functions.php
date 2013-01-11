@@ -11,4 +11,6 @@ if ( !function_exists( 'register_scaleup_schema' ) ) {
   function register_scaleup_schema( $type, $classname, $path ) {
     ScaleUp_Schemas::register( $type, $classname, $path );
   }
+
 }
+
