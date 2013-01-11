@@ -3,6 +3,9 @@ class ScaleUp_Schemas_Plugin {
 
   function __construct() {
     add_filter( 'debug_bar_panels', array( $this, 'debug_bar_panels') );
+
+    // initialize ScaleUp Schemas
+    new ScaleUp_Schemas();
   }
 
   function debug_bar_panels( $panels ) {
@@ -12,3 +15,4 @@ class ScaleUp_Schemas_Plugin {
   }
 
 }
+new ScaleUp_Schemas_Plugin();
