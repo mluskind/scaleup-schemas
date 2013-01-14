@@ -13,9 +13,15 @@ if ( class_exists( 'Debug_Bar') ) {
 
     function render() {
 
-      $scaleup_schemas = ScaleUp_Schemas::this();
+      $html = array();
+      $html[] = '<h3>Registered schemas</h3>';
+      $schemas = ScaleUp_Schemas::get_available_schemas();
+      $html[] = "<ul>";
+      foreach ( $schemas as $schema => $fields )
+        $html[] = "<li>$schema</li>";
+      $html[] = "</ul>";
 
-
+      echo join("\n", $html);
     }
   }
 

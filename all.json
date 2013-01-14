@@ -10626,8 +10626,8 @@
         "Thing", 
         "Place"
       ], 
-      "comment": "A public structure, such as a town hall or concert hall.", 
-      "comment_plain": "A public structure, such as a town hall or concert hall.", 
+      "comment": "A public structure, such as a town hall or concert hall.",
+      "comment_plain": "A public structure, such as a town hall or concert hall.",
       "id": "CivicStructure", 
       "label": "Civic Structure", 
       "properties": [
@@ -12049,8 +12049,8 @@
         "Thing", 
         "Intangible"
       ], 
-      "comment": "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.", 
-      "comment_plain": "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.", 
+      "comment": "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.",
+      "comment_plain": "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply.",
       "id": "Demand", 
       "label": "Demand", 
       "properties": [
@@ -24306,8 +24306,8 @@
         "LocalBusiness", 
         "SportsActivityLocation"
       ], 
-      "comment": "A public swimming pool.", 
-      "comment_plain": "A public swimming pool.", 
+      "comment": "A public swimming pool.",
+      "comment_plain": "A public swimming pool.",
       "id": "PublicSwimmingPool", 
       "label": "Public Swimming Pool", 
       "properties": [
