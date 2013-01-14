@@ -15,12 +15,25 @@ if ( !function_exists( 'register_scaleup_schema' ) ) {
 
 if ( !function_exists( 'get_schema_fields' ) ) {
   /**
-   * Return array of schema's fields
+   * Return array of fields for a schema
    *
    * @param $schema
+   * @param bool $from_reference bool
+   * @return array
    */
-  function get_schema_fields( $schema ) {
-    return ScaleUp_Schemas::get_schema_fields( $schema );
+  function get_schema_fields( $schema, $from_reference = false ) {
+    return ScaleUp_Schemas::get_schema_fields( $schema, $from_reference );
   }
 }
 
+if ( !function_exists( 'has_schema' ) ) {
+  /**
+   * Return true if post has schema loaded into it
+   *
+   * @return bool
+   */
+  function has_schema() {
+    global $post;
+    return isset( $post->schema );
+  }
+}

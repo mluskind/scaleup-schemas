@@ -17,8 +17,15 @@ if ( class_exists( 'Debug_Bar') ) {
       $html[] = '<h3>Registered schemas</h3>';
       $schemas = ScaleUp_Schemas::get_available_schemas();
       $html[] = "<ul>";
-      foreach ( $schemas as $schema => $fields )
-        $html[] = "<li>$schema</li>";
+      foreach ( $schemas as $schema => $fields ) {
+        $html[] = "<li><h4>$schema</h4>";
+        $fields = get_schema_fields( $schema );
+        $html[] = "<ul>";
+        foreach ( $fields as $name )
+          $html[] = "<li>$name</li>";
+        $html[] = "</ul>";
+        $html[] = "</li>";
+      }
       $html[] = "</ul>";
 
       echo join("\n", $html);

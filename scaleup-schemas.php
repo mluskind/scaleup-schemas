@@ -11,3 +11,4 @@ define( 'SCALEUP_SCHEMAS_MIN_WP', '3.4' );
 require_once( SCALEUP_SCHEMAS_DIR . '/classes/class-schemas.php' );
 require_once( SCALEUP_SCHEMAS_DIR . '/classes/class-plugin-base.php' );
 require_once( SCALEUP_SCHEMAS_DIR . '/functions.php' );
+require_once( SCALEUP_SCHEMAS_DIR . '/template-tags.php' );

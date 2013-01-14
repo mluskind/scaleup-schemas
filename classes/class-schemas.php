@@ -4,15 +4,17 @@
  */
 class ScaleUp_Schemas {
 
-  private static $_schemas;
-
   private static $_this;
+
+  private static $_schemas;
 
   private static $_storage_transient = 'scaleup_schemas_storage';
 
   private static $_debug = array();
 
   private static $_available = array();
+
+  private static $_post_type_to_schema = array();
 
   public static function this() {
     return self::$_this;
@@ -21,6 +23,7 @@ class ScaleUp_Schemas {
   function __construct() {
     self::$_schemas = $this->_load_schemas();
     add_action( 'init', array( $this, 'init') );
+    add_action( 'the_post', array( $this, 'the_post') );
   }
 
   function init() {
@@ -34,17 +37,23 @@ class ScaleUp_Schemas {
    * @param $post_type
    * @param $fields
    */
-  function register( $schema, $post_type, $fields ) {
-    self::$_available[ $schema ][ $post_type ] = $fields ;
+  public static function register( $schema, $post_type, $fields ) {
+    self::$_available[ $schema ][ $post_type ] = $fields;
+    self::$_post_type_to_schema[ $post_type ] = $schema;
   }
 
   /**
    * Return array of field names for a schema
+   *
    * @param $schema_name
+   * @param $from_reference
    * @return array
    */
-  public static function get_schema_fields( $schema_name ) {
-    return self::$_schemas['types'][ $schema_name ]['properties'];
+  public static function get_schema_fields( $schema_name, $from_reference = false ) {
+    if ( $from_reference )
+      return self::$_schemas['types'][ $schema_name ]['properties'];
+    else
+      return self::$_available[ $schema_name ];
   }
 
   /**
@@ -54,6 +63,33 @@ class ScaleUp_Schemas {
    */
   public static function get_available_schemas(){
     return self::$_available;
+  }
+
+  /**
+   * Injects schema related information into the post
+   *
+   * @param $post
+   */
+  function the_post( $post ) {
+
+    $schema = array();
+
+    if ( isset( self::$_post_type_to_schema[ $post->post_type ] ) ) {
+      $schema[ 'name' ]   = self::$_post_type_to_schema[ $post->post_type ];
+      $schema[ 'fields' ] = self::get_schema_fields( $schema['name'] );
+    }
+
+    if ( is_object( $post ) ) {
+      $schema = (object) $schema;
+      $post->schema = $schema;
+    } else {
+      $post['schema'] = $schema;
+    }
+
+  }
+
+  public static function get_schema_url( $schema ) {
+    return self::$_schemas['types'][$schema]['url'];
   }
 
   private static function _load_schemas() {
