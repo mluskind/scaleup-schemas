@@ -17,12 +17,17 @@ if ( class_exists( 'Debug_Bar') ) {
       $html[] = '<h3>Registered schemas</h3>';
       $schemas = ScaleUp_Schemas::get_available_schemas();
       $html[] = "<ul>";
-      foreach ( $schemas as $schema => $fields ) {
+      foreach ( $schemas as $schema => $post_types ) {
         $html[] = "<li><h4>$schema</h4>";
-        $fields = get_schema_fields( $schema );
         $html[] = "<ul>";
-        foreach ( $fields as $name )
-          $html[] = "<li>$name</li>";
+        foreach ( $post_types as $name => $fields ) {
+          $html[] = "<li><strong>Post Type</strong>: $name</li>";
+          $html[] = "<ul>";
+          foreach ( $fields as $field_name => $field_options ) {
+            $html[] = "<li>$field_name</li>";
+          }
+          $html[] = "</ul>";
+        }
         $html[] = "</ul>";
         $html[] = "</li>";
       }

@@ -26,6 +26,13 @@ if ( !function_exists( 'get_schema_fields' ) ) {
   }
 }
 
+if ( !function_exists( 'get_schema_field' ) ) {
+
+  function get_schema_field( $field, $from_reference = false ) {
+    return ScaleUp_Schemas::get_schema_field( $field, $from_reference );
+  }
+}
+
 if ( !function_exists( 'has_schema' ) ) {
   /**
    * Return true if post has schema loaded into it

@@ -57,6 +57,20 @@ class ScaleUp_Schemas {
   }
 
   /**
+   * Return array of field information from schema fields reference
+   *
+   * @param $field
+   * @param bool $from_reference
+   * @return string
+   */
+  public static function get_schema_field( $field, $from_reference = false ) {
+    if ( $from_reference )
+      return self::$_schemas['properties'][ $field ];
+    else // @todo: Don't know what this does yet
+    return '';
+  }
+
+  /**
    * Return array of available schemas with their post types
    *
    * @return array
